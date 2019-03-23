@@ -1,77 +1,20 @@
 import React, { Component } from 'react';
 import './App.css';
-
-const Header = (props) => {
-  const { title, totalPlayers} = {...props}
-  // destruct assignment
-  return (
-    <header>
-      <h1>
-        {title}
-      </h1>
-      <span className="stats">Players : {totalPlayers}</span>
-    </header>
-  )
-}
-
-class Counter extends React.Component {
-  constructor(props){
-    super(props)
-    this.state = {
-      score : 0
-    }
-  }
-  
-  incrementScore = () => {
-    // 변경을 하기 위해서는 setState를 호출
-    // 이전 state 값을 가져온 후 머지
-    this.setState(prevState => {
-      return {
-        score: prevState.score + 10
-      }
-    })
-  }
-
-  decrementScore =() =>{
-    this.setState(prevState => {
-      return {
-        score: prevState.score - 10
-      }
-    })
-  }
-
-  render() {
-    return (
-      <div className="counter">
-        <button className="counter-action decrement" onClick={this.decrementScore}> - </button>
-        <span className="counter-score">{this.state.score}</span>
-        <button className="counter-action increment" onClick={this.incrementScore}> + </button>
-      </div>
-    )
-
-  }
-}
+import {Header} from './components/Header'
+import {Player} from './components/Player'
 
 
-const Player = (props) => (
-  <div className="player">
-    <span className="player-name">
-      <button className="remove-player" onClick={()=> props.handleRemovePlayer(props.id)}>x</button>
-    </span>
-    <span className="player-name">{props.name}</span>
-    <Counter/>
-  </div>
-)
 
 class App extends React.Component{
 
   state = {
     players : [
       {_id: 0, name : "BSM" },
-      {_id: 1, name : "you" },
-      {_id: 2, name : "bo" },
-      {_id: 3, name : "hyun" },
-      {_id: 4, name : "kerry" }
+      {_id: 1, name : "brad" },
+      {_id: 2, name : "shawn" },
+      {_id: 3, name : "levi" },
+      {_id: 4, name : "kerry" },
+      {_id: 5, name : "rich" }
     ]
   }
 
