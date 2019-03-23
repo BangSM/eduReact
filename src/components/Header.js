@@ -1,14 +1,13 @@
 import React from 'react'
+import {Statistics} from './Statistics'
 
 export const Header = (props) => {
-  const { title, totalPlayers} = {...props}
+  const { title, totalPlayers, totalScore} = {...props}
   // destruct assignment
   return (
     <header>
-      <h1>
-        {title}
-      </h1>
-      <span className="stats">Players : {totalPlayers}</span>
+      <Statistics totalPlayers={totalPlayers} totalScore={totalScore}/>
+      <h1>{title}</h1>
     </header>
   )
 }
