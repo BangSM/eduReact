@@ -15,11 +15,14 @@ export const Header = ({title, totalPlayers, totalScore}) => {
   )
 }
 Header.propsType = {
-  title : PropTypes.string,
+  title : PropTypes.string.isRequired,
   totalPlayers : PropTypes.arrayOf(PropTypes.shape({
     id : PropTypes.number,
     score : PropTypes.number,
     name : PropTypes.string
   })),
   totalScore : PropTypes.number
+}
+Header.defaultProps = {
+  title : 'ScoreBoard'
 }
