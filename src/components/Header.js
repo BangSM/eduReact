@@ -2,8 +2,8 @@ import React from 'react'
 import {Statistics} from './Statistics'
 import Stopwatch from './Stopwatch';
 
-export const Header = (props) => {
-  const { title, totalPlayers, totalScore} = {...props}
+export const Header = ({title, totalPlayers, totalScore}) => {
+  // const { title, totalPlayers, totalScore} = {...props}
   // destruct assignment
   return (
     <header>
