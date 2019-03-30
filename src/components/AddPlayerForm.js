@@ -5,12 +5,12 @@ export default class AddPlayerForm extends React.Component{
   textInput = React.createRef()
 
 
-  constructor(props){
-    super(props)
-    // this.state = {
-    //   playerName : ""
-    // }
-  }
+  // constructor(props){
+  //   super(props)
+  //   this.state = {
+  //     playerName : ""
+  //   }
+  // }
 
   // handleValueChange = (e) => {
   //   this.setState({playerName : e.target.value})
