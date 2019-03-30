@@ -1,8 +1,13 @@
 import React from 'react'
-import propTypes from 'prop-types'
+import PropTypes from 'prop-types'
 
 class Counter extends React.Component{
-  
+  // statics 이라는 클래스 공통 속성 키워드로 propTypes 적용'
+  static propTypes = {
+    score : PropTypes.number,
+    id : PropTypes.number,
+    handleChangeScore : PropTypes.func
+  }
   render(){
     const {score , handleChangeScore, id} = this.props
     return (
@@ -15,9 +20,3 @@ class Counter extends React.Component{
   }
 }
 export default Counter
-
-Counter.propTypes = {
-  score : propTypes.number,
-  id : propTypes.number,
-  handleChangeScore : propTypes.func
-}
