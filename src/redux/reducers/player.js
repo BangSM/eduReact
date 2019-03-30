@@ -1,3 +1,4 @@
+import {UPDATE_TITLE , ADD_PLAYER} from '../actionTypes'
 const playerInitialState = {
   title : 'My Scoreboard',
   players : [
@@ -11,5 +12,20 @@ const playerInitialState = {
 }
 
 export const playerReducer = (state=playerInitialState, action) => {
-  return state 
+  switch(action.type){
+    case UPDATE_TITLE :
+      return {
+        ...state,
+        title : action.title
+      }
+    case ADD_PLAYER :
+      return {
+        ...state,
+        players : [
+          ...state.players,
+          {name : action.name ,score:0, _id : state.players.length + 1}
+        ]
+      }
+    default : return state
+  }
 }
