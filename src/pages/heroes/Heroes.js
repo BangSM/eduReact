@@ -28,7 +28,7 @@ export default class Heroes extends React.Component{
         {
           this.state.heroes.map(hero => (
             <li key={hero.hero_id}>
-              <img src={hero.photo} />
+              <img src={hero.photo ? hero.photo : process.env.PUBLIC_URL+'/images/baseline-face-24px.svg'} />
               <span>{hero.name}</span>
             </li>
           ))
