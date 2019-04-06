@@ -1,4 +1,4 @@
-import React from 'react';
+/* import React from 'react';
 import './App.css';
 import Header from './components/Header'
 import Player from './components/Player'
@@ -57,3 +57,4 @@ const mapStateToProps = (state) => ({
   players : state.playerReducer.players
 })
 export default connect(mapStateToProps)(App);
+ */
