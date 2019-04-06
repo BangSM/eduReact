@@ -3,6 +3,8 @@ import axios from 'axios'
 import Pagination from 'rc-pagination'
 // import styles from './Heroes.module.scss'
 import 'rc-pagination/dist/rc-pagination.css'
+import {Switch, Route} from 'react-router-dom'
+import Hero from '../hero/Hero'
 
 export default class Heroes extends React.Component {
   constructor(props) {
@@ -27,7 +29,7 @@ export default class Heroes extends React.Component {
 
   handleMove(event, hero_id){
     event.preventDefault()
-    this.props.history.push(`/hero/${hero_id}`)
+    this.props.history.push(`/heroes/hero/${hero_id}`)
   }
 
   async getHeroes() {
@@ -43,6 +45,10 @@ export default class Heroes extends React.Component {
   render() {
     return (
       <>
+      {/* 네스티드 된 상세화면 */}
+      <Switch>
+        <Route path="/heroes/hero/:hero_id" component={Hero}></Route>
+      </Switch>
       <div className="row">
         {
           this.state.heroes.map(hero => (
