@@ -1,5 +1,6 @@
 import React from 'react'
 import Counter from './Counter'
+import styles from '../pages/scoreboard/Scoreboard.module.css'
 
 export default class Player extends React.PureComponent {
   // componentWillReceiveProps(nextProps, nextContext){
@@ -16,11 +17,11 @@ export default class Player extends React.PureComponent {
     const {name, id, score, handleChangeScore} = this.props
     console.log(name, 'render')
     return (
-    <div className="player">
-      <span className="player-name">
-        <button className="remove-player" onClick={()=> this.props.handleRemovePlayer(id)}>x</button>
+    <div className={styles.player}>
+      <span className={styles['player-name']}>
+        <button className={styles['remove-player']} onClick={()=> this.props.handleRemovePlayer(id)}>x</button>
       </span>
-      <span className="player-name">{name}</span>
+      <span className={styles['player-name']}>{name}</span>
       <Counter score={score} id={id} handleChangeScore={handleChangeScore}/>
     </div>
   )}
