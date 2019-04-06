@@ -10,12 +10,16 @@ export default class Hero extends React.Component {
   }
 
   componentDidMount() {
-    this.getHero()
-
+    const hero_id = this.props.match.params.hero_id
+    this.getHero(hero_id)
   }
 
-  async getHero() {
-    const hero_id = this.props.match.params.hero_id
+  componentWillReceiveProps(nextProps, nextContext){
+    const hero_id = nextProps.match.params.hero_id
+    this.getHero(hero_id)
+  }
+  
+  async getHero(hero_id) {
     const res = await axios.get(`http://eastflag.co.kr:8080/api/hero/${hero_id}`)
     this.setState({
       hero: res.data
