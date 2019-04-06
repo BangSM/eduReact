@@ -25,6 +25,11 @@ export default class Heroes extends React.Component {
     this.getHeroes()
   }
 
+  handleMove(event, hero_id){
+    event.preventDefault()
+    this.props.history.push(`/hero/${hero_id}`)
+  }
+
   async getHeroes() {
     const start_index = (this.state.currentPage -1) * this.state.pageSize
     const res = await axios.get(`http://eastflag.co.kr:8080/api/paged_heroes?start_index=${start_index}&page_size=${this.state.pageSize}`)
@@ -41,7 +46,7 @@ export default class Heroes extends React.Component {
       <div className="row">
         {
           this.state.heroes.map(hero => (
-            <div className="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 p-1 p-sm-2 p-md-3" key={hero.hero_id}>
+            <div className="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 p-1 p-sm-2 p-md-3" key={hero.hero_id} onClick={(e) => this.handleMove(e, hero.hero_id)}>
               <div className="card" key={hero.hero_id}>
                 <img src={hero.photo ? hero.photo : process.env.PUBLIC_URL + '/images/baseline-face-24px.svg'} className="card-img-top" alt={hero.name} />
                 <div className="card-body">
