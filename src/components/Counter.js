@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import ClassNames from 'classnames'
 import styles from '../pages/scoreboard/Scoreboard.module.css'
+import { changeScore } from '../redux/actions';
+import { connect } from 'react-redux';
 
 
 class Counter extends React.Component{
@@ -12,14 +14,20 @@ class Counter extends React.Component{
     handleChangeScore : PropTypes.func
   }
   render(){
-    const {score , handleChangeScore, id} = this.props
+    const {score , changeScore, id} = this.props
     return (
       <div className={styles.counter}>
-      <button className={ClassNames(styles['counter-action'], styles.decrement)} onClick={() => {handleChangeScore(id , -10)}}> - </button>
+      <button className={ClassNames(styles['counter-action'], styles.decrement)} onClick={() => {changeScore(id , -10)}}> - </button>
       <span className={styles['counter-score']}>{score}</span>
-      <button className={ClassNames(styles['counter-action'], styles.increment)} onClick={() => {handleChangeScore(id , +10)}}> + </button>
+      <button className={ClassNames(styles['counter-action'], styles.increment)} onClick={() => {changeScore(id , +10)}}> + </button>
     </div>
     )
   }
 }
-export default Counter
+
+// 액션을 디스패치하는 func를 Props로 subscribe 해서 가져온다.
+// let mapDispathchToProps = (dispathch) => ({
+//   changeScore : (id, delta) => (dispathch(changeScore(id, delta)))
+// })
+
+export default connect(null, {changeScore})(Counter)

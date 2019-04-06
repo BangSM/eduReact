@@ -1,8 +1,10 @@
 import React from 'react'
 import Counter from './Counter'
 import styles from '../pages/scoreboard/Scoreboard.module.css'
+import { connect } from 'react-redux';
+import {removePlayer} from '../redux/actions'
 
-export default class Player extends React.PureComponent {
+ class Player extends React.PureComponent {
   // componentWillReceiveProps(nextProps, nextContext){
   //   console.log('componentWillReceiveProps' , nextProps)
   // }
@@ -14,15 +16,17 @@ export default class Player extends React.PureComponent {
 
   render(){
     // destruct assignment
-    const {name, id, score, handleChangeScore} = this.props
+    const {removePlayer, name, id, score, handleChangeScore} = this.props
     console.log(name, 'render')
     return (
     <div className={styles.player}>
       <span className={styles['player-name']}>
-        <button className={styles['remove-player']} onClick={()=> this.props.handleRemovePlayer(id)}>x</button>
+        <button className={styles['remove-player']} onClick={()=> removePlayer(id)}>x</button>
       </span>
       <span className={styles['player-name']}>{name}</span>
       <Counter score={score} id={id} handleChangeScore={handleChangeScore}/>
     </div>
   )}
 }
+
+export default connect(null , {removePlayer})(Player)

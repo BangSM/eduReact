@@ -1,4 +1,5 @@
 import React from 'react'
+import styles from '../pages/scoreboard/Scoreboard.module.css'
 
 export default class Stopwatch extends React.Component{
   tickRef;
@@ -37,9 +38,9 @@ export default class Stopwatch extends React.Component{
 
   render(){
     return (
-      <div className="stopwatch">
+      <div className={styles.stopwatch}>
         <h2>Stopwatch</h2>
-        <span className="stopwatch-time">{this.state.timer}</span>
+        <span className={styles["stopwatch-time"]}>{this.state.timer}</span>
         <button onClick={this.handleClick}>{this.state.isRunning ? 'Stop' : 'Start' }</button>
         <button>Reset</button>
       </div>

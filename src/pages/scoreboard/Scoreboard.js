@@ -7,20 +7,20 @@ import styles from './Scoreboard.module.css';
 
 class Scoreboard extends React.Component{
   
-  handleChangeScore = (id, delta) => {
-    this.setState(prevState => {
-      prevState.players.forEach(item => {
-        if(item._id === id){
-          item.score += delta
-        }
-      })
-      return {players : [...prevState.players]}
-    })
-  }
+  // handleChangeScore = (id, delta) => {
+  //   this.setState(prevState => {
+  //     prevState.players.forEach(item => {
+  //       if(item._id === id){
+  //         item.score += delta
+  //       }
+  //     })
+  //     return {players : [...prevState.players]}
+  //   })
+  // }
 
-  handleRemovePlayer = (id) => {
-   this.setState(prevState => ({ players : prevState.players.filter(item => item._id !== id) }))
-  }
+  // handleRemovePlayer = (id) => {
+  //  this.setState(prevState => ({ players : prevState.players.filter(item => item._id !== id) }))
+  // }
 
   totalScore = () => {
     let total = 0
@@ -41,7 +41,7 @@ class Scoreboard extends React.Component{
         {
           this.props.players.map((player) => {
             return(
-              <Player name={player.name} key={player._id} id={player._id} score={player.score} handleRemovePlayer={this.handleRemovePlayer} handleChangeScore={this.handleChangeScore} />
+              <Player name={player.name} key={player._id} id={player._id} score={player.score} /* handleRemovePlayer={this.handleRemovePlayer} handleChangeScore={this.handleChangeScore} */ />
             )
           })
         }
