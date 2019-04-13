@@ -22,7 +22,7 @@ class AddPlayerForm extends React.Component{
   handleSubmit = (e) => {
     e.preventDefault()
     // DOM에 접근해서 value를 가져옴
-    this.props.handleAddPlayer(this.textInput.current.value)
+    this.props.addPlayer(this.textInput.current.value)
     e.currentTarget.reset()
     // this.setState({
     //   playerName : ''

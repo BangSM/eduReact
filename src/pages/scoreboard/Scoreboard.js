@@ -54,4 +54,5 @@ class Scoreboard extends React.Component{
 const mapStateToProps = (state) => ({
   players : state.playerReducer.players
 })
+
 export default connect(mapStateToProps)(Scoreboard);

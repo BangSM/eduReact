@@ -43,11 +43,6 @@ export const playerReducer = (state = playerInitialState, action) => {
         ...state,
         players : state.players.filter(player => player._id !== action.id )
       }
-
-
-
-
-
     default: return state
   }
 }
